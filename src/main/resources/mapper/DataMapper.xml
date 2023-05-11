@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:改mapper.xml映射文件的唯一标识并且必须和数据处理层的接口的路径相同-->
+<mapper namespace="com.ads.mapper.DataMapper">
+    <!--   必须添加property属性 ，区别于是否加主键-->
+    <resultMap id="data" type="com.ads.entity.DataEntity">
+        <id column="id" property="id" javaType="int" ></id>
+        <result column="appid" property="appId" javaType="String" ></result>
+        <result column="pn" property="pn" javaType="String" ></result>
+        <result column="os" property="os" javaType="int" ></result>
+        <result column="version" property="version" javaType="String" ></result>
+        <result column="device" property="device" javaType="String" ></result>
+        <result column="token" property="token" javaType="String" ></result>
+        <result column="code" property="code" javaType="String" ></result>
+        <result column="timestamp" property="timestamp" javaType="java.sql.Date" ></result>
+    </resultMap>
+    <!--id的值必须和数据处理层的接口名一致-->
+    <!--DataEntity-->
+    <insert id="save" parameterType="com.ads.entity.DataEntity" >
+        insert into jiagu_sdk_data(`appid`,`pn`,`os`,`version`,`device`,`token`,`code`) value
+            ('${appId}','${pn}','${os}','${version}','${device}','${token}','${code}')
+    </insert>
+</mapper>
