@@ -12,6 +12,7 @@ import java.sql.SQLException;
 class NewbeeMallApplicationTests {
 
     // 注入数据源对象
+    @Autowired
     private DataSource defaultDataSource;
     @Test
     public void datasourceTest() throws SQLException {
